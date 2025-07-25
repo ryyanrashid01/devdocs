@@ -136,13 +136,13 @@ You should see `True`.
 
 - **`docker: Error response from daemon: could not select device driver "nvidia"`**
 
-- Make sure the NVIDIA Container Toolkit is installed.
-- Try restarting Docker: `sudo systemctl restart docker`
+  - Make sure the NVIDIA Container Toolkit is installed.
+  - Try restarting Docker: `sudo systemctl restart docker`
 
 - **PyTorch or TensorFlow can't find GPU**
 
-- Double-check CUDA version in image.
-- Verify container is started with `--gpus all`
+  - Double-check CUDA version in image.
+  - Verify container is started with `--gpus all`
 
 ---
 

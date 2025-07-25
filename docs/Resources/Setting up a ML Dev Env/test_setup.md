@@ -100,8 +100,6 @@ Want to see your GPU in action? Here's a fun little stress test script using PyT
 
 ### 🔥 GPU Burn Test
 
-<details> 
-<summary>**Show Code**</summary>
 ```python
 import torch
 import time
@@ -135,17 +133,15 @@ def burn_gpu(seconds=20, size=15000):
 if **name** == "**main**":
 
     burn_gpu(seconds=20, size=15000)
-
 ```
 
-</details>
-
 #### Notes
+
 - Adjust size carefully based on your GPU VRAM. For 4GB or lower, use size=8000 or less.
 - You can monitor usage using:
-    - `nvidia-smi` (CLI)
-    - `nvtop` (Linux CLI UI: `sudo apt install nvtop; nvtop`)
-    - Task Manager > Performance > GPU (Windows)
+  - `nvidia-smi` (CLI)
+  - `nvtop` (Linux CLI UI: `sudo apt install nvtop; nvtop`)
+  - Task Manager > Performance > GPU (Windows)
 
 ![nvtop](https://ik.imagekit.io/devdocs/img/ml_env/nvtop.png)
 
@@ -160,6 +156,3 @@ if **name** == "**main**":
 | TensorFlow sees no GPU               | Double-check cuDNN + TensorFlow versions and verify with `pip list` |
 
 ---
-
-You're now ready to build and train ML models with full acceleration. 🚀
-```

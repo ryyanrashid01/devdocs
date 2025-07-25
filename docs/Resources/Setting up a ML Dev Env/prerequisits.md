@@ -222,10 +222,10 @@ Make sure you selected the option "Add Miniconda/Anaconda to my PATH environment
 
 If you skipped that:
 
-1. Open the Start Menu, search for “Environment Variables”.
-2. Click Edit the system environment variables.
-3. In the System Properties window, click Environment Variables.
-4. Under System variables, find the Path variable, click Edit, and add the path to your Conda installation.
+1. Open the **Start Menu**, search for **“Environment Variables”**.
+2. Click **Edit** the system environment variables.
+3. In the **System Properties** window, click **Environment Variables**.
+4. Under System variables, find the **Path** variable, click **Edit**, and add the path to your Conda installation.
 5. Default path for Miniconda:
 
 ```ini
