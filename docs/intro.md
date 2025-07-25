@@ -15,9 +15,13 @@ This site contains organized technical notes and deployment guides.
 
 ## Table of Contents
 
-1. [Deploying to Virtual Machine](./Deploying%20to%20Virtual%20Machine/)
+- [Deploying to Virtual Machine](./Deploying%20to%20Virtual%20Machine/)
+- Repositories
+  - [PRISM](./Repositories/PRISM/)
 
-_(Updated as new topics are added.)_
+:::info
+Updated as new topics are added.
+:::
 
 ## How to Use
 
