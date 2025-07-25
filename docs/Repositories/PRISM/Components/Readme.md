@@ -15,11 +15,11 @@ This is the main index for all custom React components in the project (excluding
 - [`active-drones`](./Active-drones): Initialization and readiness of drones
 - [`drone-form`](./Drone-form): Configure and add drones
 - [`drone-control`](./Drone-control): Map drawing controls for monitoring zone
-- [`mz-map`](./Monitoring-zone-map): Map container and integration
+- [`mz-map`](./mz-map): Map container and integration
 - [`config-sidebar`](./Config-sidebar): Main sidebar for simulation config
 - [`sim-controls`](./Sim-controls): Start/stop/reset simulation
 - [`sim-form`](./Sim-form): Wizard for configuring simulatio/
-- [`mz-form`](./Monitoring-zone-form): Configure monitoring zone
+- [`mz-form`](./mz-form): Configure monitoring zone
 - [`time-form`](./Time-form): Configure simulation timing
 - [`collapsible-card`](./Collapsible-card): Expandable card UI for forms
 
@@ -27,9 +27,9 @@ This is the main index for all custom React components in the project (excluding
 
 - [`results-table`](./Results-table): Per-tick summary table
 - [`results-charts`](./Results-charts): Processing time graphs
-- [`results-drone-path`](./Results-drone-paths): Drone path image/overview
-- [`results-pertickbreakdown`](./Results-per-tick-breakdown): Per-tick breakdown chart
-- [`results-processingtimehist`](./Results-processing-time-hist): Histogram of drone processing times
+- [`results-drone-path`](./results-drone-path): Drone path image/overview
+- [`results-pertickbreakdown`](./results-pertickbreakdown): Per-tick breakdown chart
+- [`results-processingtimehist`](./results-processingtimehist): Histogram of drone processing times
 - [`drone-processing-charts`](./Drone-processing-charts): Real-time processing charts
 
 ## Utility & Layout Components
