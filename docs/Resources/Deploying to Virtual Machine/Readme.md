@@ -1,5 +1,4 @@
 ---
-sidebar_position: 2
 title: Deploying a website to a VM
 ---
 

@@ -2,6 +2,9 @@
 sidebar_position: 1
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # DevDocs
 
 This site contains organized technical notes and deployment guides.
@@ -15,9 +18,14 @@ This site contains organized technical notes and deployment guides.
 
 ## Table of Contents
 
-- [Deploying to Virtual Machine](./Deploying%20to%20Virtual%20Machine/)
-- Repositories
-  - [PRISM](./Repositories/PRISM/)
+<Tabs>
+    <TabItem value="resources" label="Resources" default>
+        - [Deploying to Virtual Machine](./Resources/Deploying%20to%20Virtual%20Machine/)
+    </TabItem>
+    <TabItem value="repos" label="Repositories" default>
+        - [PRISM](./Repositories/PRISM/)
+    </TabItem>
+</Tabs>
 
 :::info
 Updated as new topics are added.
