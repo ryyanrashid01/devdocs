@@ -15,6 +15,8 @@ This site contains organized technical notes and deployment guides.
 
 ## Table of Contents
 
+1. [Deploying to Virtual Machine](./Deploying%20to%20Virtual%20Machine/)
+
 _(Updated as new topics are added.)_
 
 ## How to Use
