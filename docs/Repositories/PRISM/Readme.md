@@ -32,7 +32,7 @@ This project is a web-based simulator for visualizing and managing drones within
 - [Library Utilities](./lib)
 - [Interfaces & Types](./interfaces-and-types)
 - [Constants](./Constants/threats)
-- [Key Simulation Logic: drone-canvas](./Components/Drone-canvas)
+- [Key Simulation Logic: drone-canvas](./Components/drone-canvas)
 
 ---
 

@@ -117,8 +117,8 @@ graph TD;
 
 ## Related Files
 
-- [`drone-context.tsx`](./drone-context.md): Provides simulation state and context.
-- [`lib/utils.ts`](../lib.md#utils): Utility functions for path and tick calculations.
+- [`drone-context.tsx`](./drone-context): Provides simulation state and context.
+- [`lib/utils.ts`](../lib): Utility functions for path and tick calculations.
 
 ## Screenshots & Diagrams
 

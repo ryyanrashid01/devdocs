@@ -99,8 +99,8 @@ interface DroneContextType {
 
 ## Related Files
 
-- [`drone-canvas.tsx`](./drone-canvas.md): Uses context for simulation logic.
-- [`lib/presets.ts`](../lib.md#presets): Provides default configs and presets.
+- [`drone-canvas.tsx`](./drone-canvas): Uses context for simulation logic.
+- [`lib/presets.ts`](../presets): Provides default configs and presets.
 
 ## Screenshots & Diagrams
 
