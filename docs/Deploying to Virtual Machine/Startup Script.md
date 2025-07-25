@@ -2,6 +2,9 @@
 sidebar_position: 5
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Setting up your app as a **systemd service** ensures it starts automatically after a reboot and can be easily managed like any other Linux service. This is ideal for apps deployed with Docker or running persistently in the background.
 
 ---
@@ -44,7 +47,10 @@ Environment=COMPOSE_DOCKER_CLI_EXPERIMENTAL=1
 WantedBy=multi-user.target
 ```
 
-> If you're **not using Docker**, replace the `ExecStart` and `ExecStop` commands with the ones used to start and stop your app manually (e.g., `node index.js`, `npm run start`, `gunicorn`, etc.). See [[#Using systemd Without Docker]].
+:::note If You're Not Using Docker
+Replace the `ExecStart` and `ExecStop` commands with whatever you use to run your app (e.g., `node index.js`, `npm run start`, `gunicorn`, etc.).  
+See [Using systemd Without Docker](#using-systemd-without-docker).
+:::
 
 ### Explanation of Each Field
 
@@ -60,44 +66,45 @@ WantedBy=multi-user.target
 
 ### Using systemd Without Docker
 
-Below are examples for different environments:
+<Tabs>
+    <TabItem value="node_node" label="Node.js (node)" default>
+    e.g. running `node index.js`
+    ```ini
+    ExecStart=/usr/bin/node /home/example-user/example-app/index.js
+    ExecStop=/bin/kill -TERM $MAINPID
+    ```
+    </TabItem>
+    <TabItem value="node_npm" label="Node.js (npm)" default>
+    e.g. running `npm start`
+    ```ini
+    ExecStart=/usr/bin/npm start --prefix /home/example-user/example-app
+    ExecStop=/bin/kill -TERM $MAINPID
+    ```
+    </TabItem>
+    <TabItem value="python" label="Python (Gunicorn)" default>
+    e.g. Flask or Django
+    ```ini
+    ExecStart=/home/example-user/.venv/bin/gunicorn app:app --bind 127.0.0.1:8000
+    ExecStop=/bin/kill -TERM $MAINPID
+    ```
+    :::info
+    Replace `app:app` with your actual module and application name.
+    :::
+    </TabItem>
+    <TabItem value="next_react" label="Next / React" default>
+    e.g. `npm run start`
+    ```ini
+    ExecStart=/usr/bin/npm run start --prefix /home/example-user/example-app
+    ExecStop=/bin/kill -TERM $MAINPID
+    ```
+    </TabItem>
+</Tabs>
 
-#### Node.js (e.g. running `node index.js`)
-
-```ini
-ExecStart=/usr/bin/node /home/example-user/example-app/index.js
-ExecStop=/bin/kill -TERM $MAINPID
-```
-
-#### Node.js with npm (e.g. `npm start`)
-
-```ini
-ExecStart=/usr/bin/npm start --prefix /home/example-user/example-app
-ExecStop=/bin/kill -TERM $MAINPID
-```
-
-#### Python with Gunicorn (e.g. Flask or Django)
-
-```ini
-ExecStart=/home/example-user/.venv/bin/gunicorn app:app --bind 127.0.0.1:8000
-ExecStop=/bin/kill -TERM $MAINPID
-```
-
-> Replace `app:app` with your actual module and application name.
-
-#### Next.js / React (e.g. `npm run start`)
-
-```ini
-ExecStart=/usr/bin/npm run start --prefix /home/example-user/example-app
-ExecStop=/bin/kill -TERM $MAINPID
-```
-
-### Why Use Full Paths in `ExecStart`
-
+:::info Why Use Full Paths in `ExecStart`
 systemd service files should always use **absolute paths** (e.g., `/usr/bin/node`, `/usr/bin/npm`) instead of just `node` or `npm`. This is because `systemd` may not inherit your shell's `$PATH`, and commands might fail to run if the path is not explicitly defined.
+:::
 
-### How to Find the Full Path of a Command
-
+:::tip How to Find the Full Path of a Command
 Use the `which` command to determine the absolute path:
 
 ```bash
@@ -116,6 +123,8 @@ If you're using a Python virtual environment (like `venv`), the path will usuall
 ```bash
 /home/youruser/myapp/.venv/bin/gunicorn
 ```
+
+:::
 
 Make sure to copy the **exact** paths into your `ExecStart` and `ExecStop` lines.
 

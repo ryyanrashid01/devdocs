@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-When you want to **automate deployment** from your GitHub repository to your server (e.g., a cloud VM), you need a secure way for GitHub Actions to connect to your server without exposing your credentials. This is where **SSH keys** and GitHub Secrets come into play.
+When you want to **automate deployment** from your GitHub repository to your server (e.g., a cloud VM), you need a secure way for GitHub Actions to connect to your server without exposing your credentials. This is where **SSH keys** and **GitHub Secrets** come into play.
 
 ---
 
@@ -27,8 +27,14 @@ ssh-keygen -t ed25519 -C "github-actions-deploy" -f github-actions -N ""
 ```
 
 - This creates two files:
-  - `github-actions` (private key) — keep this secret!
+
+  - `github-actions` (private key).
   - `github-actions.pub` (public key) — to add on your server.
+
+:::warning
+Never share your private key. It must remain secret and secure. <br/>
+It's safe to upload or share your public key (e.g., on GitHub or with a server). The private key is what grants access.
+:::
 
 ### Add the Public Key to Your Server’s Authorized Keys
 
@@ -51,7 +57,7 @@ _Why:_ This allows GitHub Actions to SSH into your server without a password.
 
 Go to your repository’s **Settings → Secrets and variables → Actions → New repository secret**, and add the following:
 
-![[githubactions.png]]
+![Github Actions](/img/deploy_to_vm/github_actions.png)
 
 | Secret Name    | Description                                                              |
 | -------------- | ------------------------------------------------------------------------ |
@@ -60,7 +66,12 @@ Go to your repository’s **Settings → Secrets and variables → Actions → N
 | `SSH_KEY`      | The _private_ key file content from `github-actions` (paste entire file) |
 | `SERVICE_NAME` | The name of your systemd service (e.g., `yourapp.service`)               |
 
-_Keep these secrets safe and never share them publicly._
+:::tip
+Keep these secrets safe and never share them publicly.
+:::
+:::note
+If you prefer, you can hardcode `HOST`, `USER`, and `SERVICE_NAME` directly in your deployment script. Just make sure to keep `SSH_KEY` as a secret — it should never be committed or exposed.
+:::
 
 ---
 
@@ -111,9 +122,9 @@ jobs:
             git reset --hard origin/main  # Replace "main" if you’re deploying a different branch
             sudo systemctl restart ${{ secrets.SERVICE_NAME }}  # Replace with your actual systemd service
           EOF
-
-          # Why: This SSHs into your server, updates the codebase, and restarts the service.
 ```
+
+_Why:_ This SSHs into your server, updates the codebase, and restarts the service.
 
 ---
 
@@ -143,7 +154,7 @@ If you're writing your own workflow file or modifying the above:
 
 ---
 
-## Optional Improvements
+## _Optional Improvements_
 
 - Use `git pull --rebase` instead of `git reset` if you want to preserve uncommitted changes.
 - Add build or test steps before deployment.

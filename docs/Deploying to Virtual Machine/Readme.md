@@ -9,7 +9,7 @@ This tutorial walks you through the process of deploying a website to a virtual 
 
 Each step explains not only what to do, but also why it’s being done, so that you gain a better understanding of how your website runs on a production server.
 
-While this guide uses DigitalOcean as the hosting provider, the steps are nearly identical for other platforms, only the initial VM setup (Step 1) may differ slightly.
+While this guide uses DigitalOcean as the hosting provider, the steps are nearly identical for other platforms, only the initial VM setup [Step 1](./Droplet%20Setup) may differ slightly.
 
 ## 2\. Step-by-Step Walkthrough
 
@@ -35,4 +35,6 @@ While this guide uses DigitalOcean as the hosting provider, the steps are nearly
 
 Each section includes commands, explanations, and where appropriate, optional security improvements.
 
-> This guide will walk you through the steps, and you’ll get hands-on experience with the command line and GitHub along the way.
+:::tip
+This guide will walk you through the steps, and you’ll get hands-on experience with the command line and GitHub along the way.
+:::

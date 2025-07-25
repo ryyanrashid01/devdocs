@@ -10,7 +10,7 @@ When deploying a website from a private GitHub repository to a server (like a Di
 
 A **deploy key** is an SSH key pair where:
 
-- The **public key** is added to a single GitHub repository’s settings (not user settings) (under _Deploy keys_).
+- **The public key** is added under _Deploy keys_ in the repository’s settings (not in your user settings).
 - The **private key** is stored securely on your server or in your CI/CD pipeline.
 - This allows the server to authenticate with GitHub _only for that repository_ — limiting scope and improving security.
 - You can grant the key **read-only** access (default) or **read/write** access if the server needs to push changes.
@@ -49,8 +49,12 @@ This generates:
 
 4.  Give the key a descriptive title (e.g., "DigitalOcean Server Deploy Key").
 5.  Paste the contents of `~/.ssh/deploy_key.pub` into the key field.
-6.  Decide if the key needs **write access** (usually not required for deployment; leave unchecked for better security).
-7.  Click **Add key**.
+
+:::tip
+You usually don’t need to give the key write access for deployment. Leave it unchecked for better security.
+:::
+
+6.  Click **Add key**.
 
 _Why:_ This step authorizes your server to clone and pull from your private repo using SSH, but only for this repo.
 
@@ -105,7 +109,7 @@ _Why:_ This fetches your latest website code so your server can serve the curren
 
 ---
 
-### Optional: Using Deploy Keys in GitHub Actions
+### _Optional: Using Deploy Keys in GitHub Actions_
 
 If you plan to automate deployments whenever you push to GitHub, you can use the deploy key in a GitHub Actions workflow.
 
@@ -119,6 +123,10 @@ _Why:_ This lets your GitHub workflow securely authenticate to your server and u
 - When a pull request is merged
 - On a manual trigger (using the `workflow_dispatch` event)
 - On a schedule (e.g. nightly builds using `schedule`)
+
+:::tip
+Automating deployments saves time and reduces manual errors, keeping your site up-to-date effortlessly.
+:::
 
 ---
 

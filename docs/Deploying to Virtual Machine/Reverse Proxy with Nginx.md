@@ -59,7 +59,9 @@ server {
 }
 ```
 
-> **Note:** Port `8000` is just a common default used by development servers like Django. You can use any available port, such as `3000` or `5000`, as long as your application is listening on it and your `proxy_pass` in the Nginx config matches the same port.
+:::note
+Port `8000` is just a common default used by development servers like Django. You can use any available port, such as `3000` or `5000`, as long as your application is listening on it and your `proxy_pass` in the Nginx config matches the same port.
+:::
 
 ### Explanation
 
@@ -104,7 +106,9 @@ source .venv/bin/activate
 python manage.py runserver
 ```
 
-> If you are using any other framework, run the server on the appropriate port for that framework, and make sure to update your Nginx `proxy_pass` configuration accordingly.
+:::warning
+If you are using any other framework, run the server on the appropriate port for that framework, and make sure to update your Nginx `proxy_pass` configuration accordingly.
+:::
 
 Once your app is running, visit:
 
@@ -143,6 +147,14 @@ server {
 
 - Requests to `/api/` go to your backend (e.g. Django, Node)
 - Other requests (like `/about`) load static HTML from `/var/www/html`
+
+:::info
+If you're running a backend server like Django or Node.js that serves both frontend and backend (e.g., templates and APIs together), you might not need a separate `/api/` route.
+
+However, if you're using a **frontend framework** like React or Vue (served from `/`), and it calls your **backend API** via `/api/`, then this separation is important. It allows Nginx to route frontend requests to static files and API requests to your server app.
+
+This is necessary because in that setup, it's the **browser** (not the server) making requests to `/api/`, so Nginx needs to know where to forward them.
+:::
 
 ---
 

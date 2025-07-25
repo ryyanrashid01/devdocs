@@ -10,14 +10,11 @@ Your droplet is the foundation of your web infrastructure. Every request to your
 
 ---
 
-> **Note**
-> If you don’t have access to the DigitalOcean account, talk to the person who does. They should generate the SSH key pair on their own machine, add the public key to the droplet, and securely share the private key and the server IP address with you.
-
----
-
 ### Step 1: Create a Droplet on DigitalOcean
 
-> If someone else has already created the droplet and given you the private key and server IP, you can skip to [[#Step 3 Connect to Your Droplet]].
+:::info
+If someone else has already created the droplet and given you the private key and server IP, you can skip to [Step 3](#step-3-connect-to-your-droplet).
+:::
 
 - Go to DigitalOcean Droplets
 - Select a datacenter region close to your location.
@@ -46,12 +43,21 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
 
 - When prompted, accept the default file location (`~/.ssh/id_ed25519`)
-- Choose a passphrase for extra security. (Essential for security)
+- Choose a passphrase for extra security.
+
+:::tip
+Choose a passphrase for extra security. You can create an SSH key without a password, but it is highly recommended to set one because this key is for the root SSH user.
+:::
 
 This creates:
 
 - `~/.ssh/id_ed25519` — your **private** key (never share this)
 - `~/.ssh/id_ed25519.pub` — your **public** key (safe to upload)
+
+:::warning
+Never share your private key. It must remain secret and secure. <br/>
+It's safe to upload or share your public key (e.g., on GitHub or with a server). The private key is what grants access.
+:::
 
 Now, upload the **public** key to DigitalOcean during droplet creation.
 
@@ -59,15 +65,13 @@ Now, upload the **public** key to DigitalOcean during droplet creation.
 
 ### Step 3: Connect to Your Droplet
 
-You can connect to the droplet using SSH, either with or without a private key file, depending on how the droplet was set up.
-
-**a. If you created the droplet and added your own SSH key**, connect using:
+**a. If you created the droplet and your SSH key is in the default location**, connect using:
 
 ```bash
 ssh root@your_droplet_ip
 ```
 
-**b. If someone else created the droplet and shared the private key with you**, use:
+**b. If your private key is in a different location**, use:
 
 ```bash
 ssh -i /path/to/private-key root@your_droplet_ip
@@ -75,4 +79,4 @@ ssh -i /path/to/private-key root@your_droplet_ip
 
 Replace `/path/to/private-key` with the actual path to the file (for example, `~/.ssh/id_ed25519`), and `your_droplet_ip` with the server’s IP address.
 
-After running the command, you should be connected to the server as the root user.
+After running the command, it will prompt you to enter the password that you set when creating your SSH keys. After entering your password, you should be connected to the server as the root user.

@@ -100,14 +100,20 @@ sudo certbot --nginx -d example.com -d www.example.com
   - Agree to Let’s Encrypt terms.
   - Verify domain ownership.
 - Choose whether to redirect all HTTP traffic to HTTPS:
+
   - Option 1: No redirect (keep HTTP and HTTPS both active).
-  - Option 2: Redirect (recommended to force HTTPS).
+  - Option 2: Redirect (HTTP requests to HTTPS).
+    :::tip
+    Redirecting HTTP to HTTPS is recommended for better security and SEO. It ensures all users automatically use the encrypted connection.
+    :::
+
 - Certbot will then:
   - Automatically configure Nginx for HTTPS.
   - Reload Nginx to apply changes.
 - You’ll see a success message confirming where certificates are saved.
 - Visit your site with `https://` and verify the lock icon in the browser.
-- Optionally, test your server with [SSL Labs Server Test](https://www.ssllabs.com/ssltest/) for an A grade.
+- Optionally, test your server with [SSL Labs Server Test](https://www.ssllabs.com/ssltest/)
+  for an A grade.
 
 ---
 
