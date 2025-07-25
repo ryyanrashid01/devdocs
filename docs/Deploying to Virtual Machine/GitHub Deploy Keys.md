@@ -45,7 +45,7 @@ This generates:
 2.  Navigate to **Settings** > **Deploy keys**.
 3.  Click **Add deploy key**.
 
-![GitHub deploy keys](/img/deploy_to_vm/github_deployment.png)
+![GitHub deploy keys](https://ik.imagekit.io/devdocs/img/deploy_to_vm/github_deployment.png)
 
 4.  Give the key a descriptive title (e.g., "DigitalOcean Server Deploy Key").
 5.  Paste the contents of `~/.ssh/deploy_key.pub` into the key field.

@@ -57,7 +57,7 @@ _Why:_ This allows GitHub Actions to SSH into your server without a password.
 
 Go to your repository’s **Settings → Secrets and variables → Actions → New repository secret**, and add the following:
 
-![Github Actions](/img/deploy_to_vm/github_actions.png)
+![Github Actions](https://ik.imagekit.io/devdocs/img/deploy_to_vm/github_actions.png)
 
 | Secret Name    | Description                                                              |
 | -------------- | ------------------------------------------------------------------------ |

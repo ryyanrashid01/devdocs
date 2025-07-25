@@ -19,12 +19,12 @@ If someone else has already created the droplet and given you the private key an
 - Go to DigitalOcean Droplets
 - Select a datacenter region close to your location.
 
-![DigitalOcean datacenter](/img/deploy_to_vm/digital_ocean_server.png)
+![DigitalOcean datacenter](https://ik.imagekit.io/devdocs/img/deploy_to_vm/digital_ocean_server.png)
 
 - Choose an image: Ubuntu is a stable, long-term support releases and works well for most setups.
 - Choose a plan (the basic Shared CPU plan is fine to start)
 
-![DigitalOcean image](/img/deploy_to_vm/digital_ocean_image.png)
+![DigitalOcean image](https://ik.imagekit.io/devdocs/img/deploy_to_vm/digital_ocean_image.png)
 
 #### Authentication:
 
