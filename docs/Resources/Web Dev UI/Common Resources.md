@@ -1,3 +1,8 @@
+---
+title: Common Resources
+sidebar_position: 2
+---
+
 # Web Development Resources
 
 A curated collection of tools and resources for modern frontend (and a bit of backend) development.

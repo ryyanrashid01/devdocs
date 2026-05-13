@@ -22,6 +22,7 @@ This site contains organized technical notes and deployment guides.
     <TabItem value="resources" label="Resources" default>
         - [Deploying to Virtual Machine](./Resources/Deploying%20to%20Virtual%20Machine/)
         - [Setting up a Machine Learning Development Environment](./Resources/Setting%20up%20a%20ML%20Dev%20Env/)
+        - [Web Dev UI](./Resources/Web%20Dev%20UI/)
     </TabItem>
     <TabItem value="repos" label="Repositories" default>
         - [PRISM](./Repositories/PRISM/)
